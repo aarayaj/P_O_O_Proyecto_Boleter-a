@@ -15,7 +15,7 @@ public class Proyecto_P_O_O_Boleteria {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("Hola");
     }
     
 }

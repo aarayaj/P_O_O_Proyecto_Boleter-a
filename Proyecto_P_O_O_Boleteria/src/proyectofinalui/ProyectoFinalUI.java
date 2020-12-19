@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_p_o_o_boleteria;
+package proyectofinalui;
 
 /**
  *
- * @author aaj
+ * @author sduran
  */
-public class Proyecto_P_O_O_Boleteria {
+public class ProyectoFinalUI {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hola");
+        // TODO code application logic here
     }
     
 }

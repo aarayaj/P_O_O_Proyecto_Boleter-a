@@ -1,21 +1,21 @@
 package zonasteatro;
 
-import java.util.Stack;
+import java.util.LinkedList;
 
-public class GraderiaPreferencial extends Graderia{
+public class GraderiaGeneral extends Graderia {
+
+    private LinkedList<Integer> espacio;
+    private final int CANTIDAD_ESPACIO = 20;
+    private final double COSTO_BOLETO = 4000.00;
     
-    private Stack<Integer> espacio;
-    private final int CANTIDAD_ESPACIO = 5;
-    private final double COSTO_BOLETO = 5500.00;
-    
-    public GraderiaPreferencial() {
+    public GraderiaGeneral() {
         super();
-        this.espacio = new Stack();
+        this.espacio = new LinkedList();
         for (int i = 0; i < CANTIDAD_ESPACIO; i++){
-            this.espacio.push(super.getESPACIO_LIBRE());
-        }
-    }
-    
+            this.espacio.add(super.getESPACIO_LIBRE());
+        }        
+    }   
+
     @Override
     public double getCOSTO_BOLETO() {
         return this.COSTO_BOLETO;
@@ -43,9 +43,9 @@ public class GraderiaPreferencial extends Graderia{
 
     @Override
     public void setEspaciosBasico(int eje_x, int rOpcion) {
-        Stack<Integer> oldEspacio = espacio;
-        Stack<Integer> newEspacio = new Stack<>();
-        espacio = new Stack<>();
+        LinkedList<Integer> oldEspacio = espacio;
+        LinkedList<Integer> newEspacio = new LinkedList<>();
+        espacio = new LinkedList<>();
         // 0 para agregar Reserva
         if (eje_x > CANTIDAD_ESPACIO){
                 eje_x = 5;
@@ -90,9 +90,9 @@ public class GraderiaPreferencial extends Graderia{
 
     @Override
     public void setEspaciosCompuesto(int eje_x, int rOpcion) {
-        Stack<Integer> oldEspacio = espacio;
-        Stack<Integer> newEspacio = new Stack<>();
-        espacio = new Stack<>();
+        LinkedList<Integer> oldEspacio = espacio;
+        LinkedList<Integer> newEspacio = new LinkedList<>();
+        espacio = new LinkedList<>();
         
         if (oldEspacio.get(eje_x) == getESPACIO_RESERVADO()){
             // 0 para agregar Libre a Reserva
@@ -171,7 +171,7 @@ public class GraderiaPreferencial extends Graderia{
                 setEspaciosOcupados(getEspaciosOcupados() +1);
             }
         });
-        setTotalGanancia(getEspaciosOcupados() * COSTO_BOLETO);
+        setTotalGanancia(getEspaciosOcupados() * getCOSTO_BOLETO());
     }
 
     @Override
